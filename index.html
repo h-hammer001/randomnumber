@@ -1,0 +1,245 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+var limit = 1;
+var limit2 = 1;
+var maxlimit = 2;
+var minlimit = 1;
+var maxmin = 0;
+var randomnumber = 0;
+</script>
+<p>※100000回 (10万回)以上にすることは推奨していません。また、その事によって何かしらの損害を受けた場合でも、製作者は一切の責任を持ちません。</p>
+<h3>繰り返し回数</h3>
+	<a id="counter">1</a>
+回乱数生成する
+<p>
+   <input type="button" id="limitdownM" onclick="limit -= 1000" disabled="true" value="-1000">
+   <input type="button" id="limitdownD" onclick="limit -= 500" disabled="true" value="-500">
+   <input type="button" id="limitdownC" onclick="limit -= 100" disabled="true" value="-100">
+   <input type="button" id="limitdownL" onclick="limit -= 50" disabled="true" value="-50">
+   <input type="button" id="limitdownX" onclick="limit -= 10" disabled="true" value="-10">
+   <input type="button" id="limitdownI" onclick="limit -= 1" value="-1" disabled="true">
+   <input type="button" id="resetlimit" onclick="limit = 1" value="reset" disabled="true">
+   <input type="button" id="limitupI" onclick="limit += 1" value="+1">
+   <input type="button" id="limitupX" onclick="limit += 10" value="+10">
+   <input type="button" id="limitupL" onclick="limit += 50" value="+50">
+   <input type="button" id="limitupC" onclick="limit += 100" value="+100">
+   <input type="button" id="limitupD" onclick="limit += 500" value="+500">
+   <input type="button" id="limitupM" onclick="limit += 1000" value="+1000">
+</p>
+最大数：<a id="max_counter">2</a>
+<a>
+   <input type="button" id="maxlimitdownM" onclick="maxlimit -= 1000" disabled="true" value="-1000">
+   <input type="button" id="maxlimitdownD" onclick="maxlimit -= 500" disabled="true" value="-500">
+   <input type="button" id="maxlimitdownC" onclick="maxlimit -= 100" disabled="true" value="-100">
+   <input type="button" id="maxlimitdownL" onclick="maxlimit -= 50" disabled="true" value="-50">
+   <input type="button" id="maxlimitdownX" onclick="maxlimit -= 10" disabled="true" value="-10">
+   <input type="button" id="maxlimitdownI" onclick="maxlimit -= 1" value="-1" disabled="true">
+   <input type="button" id="resetmaxlimit" onclick="maxlimit = 2" value="reset" disabled="true">
+   <input type="button" id="maxlimitupI" onclick="maxlimit += 1" value="+1">
+   <input type="button" id="maxlimitupX" onclick="maxlimit += 10" value="+10">
+   <input type="button" id="maxlimitupL" onclick="maxlimit += 50" value="+50">
+   <input type="button" id="maxlimitupC" onclick="maxlimit += 100" value="+100">
+   <input type="button" id="maxlimitupD" onclick="maxlimit += 500" value="+500">
+   <input type="button" id="maxlimitupM" onclick="maxlimit += 1000" value="+1000">
+</a><br>
+最小数：<a id="min_counter">1</a>
+<a>
+   <input type="button" id="minlimitdownM" onclick="minlimit -= 1000" disabled="true" value="-1000">
+   <input type="button" id="minlimitdownD" onclick="minlimit -= 500" disabled="true" value="-500">
+   <input type="button" id="minlimitdownC" onclick="minlimit -= 100" disabled="true" value="-100">
+   <input type="button" id="minlimitdownL" onclick="minlimit -= 50" disabled="true" value="-50">
+   <input type="button" id="minlimitdownX" onclick="minlimit -= 10" disabled="true" value="-10">
+   <input type="button" id="minlimitdownI" onclick="minlimit -= 1" value="-1" disabled="true">
+   <input type="button" id="resetminlimit" onclick="minlimit = 1" value="reset" disabled="true">
+   <input type="button" id="minlimitupI" onclick="minlimit += 1" value="+1">
+   <input type="button" id="minlimitupX" onclick="minlimit += 10" value="+10">
+   <input type="button" id="minlimitupL" onclick="minlimit += 50" value="+50">
+   <input type="button" id="minlimitupC" onclick="minlimit += 100" value="+100">
+   <input type="button" id="minlimitupD" onclick="minlimit += 500" value="+500">
+   <input type="button" id="minlimitupM" onclick="minlimit += 1000" value="+1000">
+</a><br><br>
+<input type="button" id="numbers" onclick="randomnumbers()" value="生成する">
+<br>
+<div id="random_namber_display"></div>
+<script type="text/javascript">
+function loop () {
+    document.getElementById('counter').innerHTML = limit;
+    if (limit <= 0) {
+        limit = 1
+    }
+    if (limit <= 1) {
+        document.getElementById("resetlimit").setAttribute("disabled","true");
+    } else {
+        resetlimit.removeAttribute("disabled");
+    }
+    if (limit <= 1) {
+        document.getElementById("limitdownI").setAttribute("disabled","true");
+    } else {
+        limitdownI.removeAttribute("disabled");
+    }
+    if (limit <= 10) {
+        document.getElementById("limitdownX").setAttribute("disabled","true");
+    } else {
+        limitdownX.removeAttribute("disabled");
+    }
+    if (limit <= 50) {
+        document.getElementById("limitdownL").setAttribute("disabled","true");
+    } else {
+        limitdownL.removeAttribute("disabled");
+    }
+    if (limit <= 100) {
+        document.getElementById("limitdownC").setAttribute("disabled","true");
+    } else {
+        limitdownC.removeAttribute("disabled");
+    }
+    if (limit <= 500) {
+        document.getElementById("limitdownD").setAttribute("disabled","true");
+    } else {
+        limitdownD.removeAttribute("disabled");
+    }
+    if (limit <= 1000) {
+        document.getElementById("limitdownM").setAttribute("disabled","true");
+    } else {
+        limitdownM.removeAttribute("disabled");
+    }
+    document.getElementById('max_counter').innerHTML = maxlimit;
+	 maxlimit2 = maxlimit;
+	 if (maxlimit <= 2) {
+	     maxlimit = 2;
+	 }
+    if (maxlimit <= 2) {
+        document.getElementById("resetmaxlimit").setAttribute("disabled","true");
+    } else {
+        resetmaxlimit.removeAttribute("disabled");
+    }
+    if (maxlimit <= 2) {
+        document.getElementById("maxlimitdownI").setAttribute("disabled","true");
+    } else {
+        maxlimitdownI.removeAttribute("disabled");
+    }
+    if (maxlimit <= 10) {
+        document.getElementById("maxlimitdownX").setAttribute("disabled","true");
+    } else {
+        maxlimitdownX.removeAttribute("disabled");
+    }
+    if (maxlimit <= 50) {
+        document.getElementById("maxlimitdownL").setAttribute("disabled","true");
+    } else {
+        maxlimitdownL.removeAttribute("disabled");
+    }
+    if (maxlimit <= 100) {
+        document.getElementById("maxlimitdownC").setAttribute("disabled","true");
+    } else {
+        maxlimitdownC.removeAttribute("disabled");
+    }
+    if (maxlimit <= 500) {
+        document.getElementById("maxlimitdownD").setAttribute("disabled","true");
+    } else {
+        maxlimitdownD.removeAttribute("disabled");
+    }
+    if (maxlimit <= 1000) {
+        document.getElementById("maxlimitdownM").setAttribute("disabled","true");
+    } else {
+        maxlimitdownM.removeAttribute("disabled");
+    }
+    maxmin = maxlimit - minlimit;
+    if (maxmin <= 1) {
+        document.getElementById("minlimitupI").setAttribute("disabled","true");
+    } else {
+        minlimitupI.removeAttribute("disabled");
+    }
+    if (maxmin <= 10) {
+        document.getElementById("minlimitupX").setAttribute("disabled","true");
+    } else {
+        minlimitupX.removeAttribute("disabled");
+    }
+    if (maxmin <= 50) {
+        document.getElementById("minlimitupL").setAttribute("disabled","true");
+    } else {
+        minlimitupL.removeAttribute("disabled");
+    }
+    if (maxmin <= 100) {
+        document.getElementById("minlimitupC").setAttribute("disabled","true");
+    } else {
+        minlimitupC.removeAttribute("disabled");
+    }
+    if (maxmin <= 500) {
+        document.getElementById("minlimitupD").setAttribute("disabled","true");
+    } else {
+        minlimitupD.removeAttribute("disabled");
+    }
+    if (maxmin <= 1000) {
+        document.getElementById("minlimitupM").setAttribute("disabled","true");
+    } else {
+        minlimitupM.removeAttribute("disabled");
+    }
+    document.getElementById('min_counter').innerHTML = minlimit;
+    if (minlimit <= 0) {
+        minlimit = 1;
+    }
+    if (minlimit <= 1) {
+        document.getElementById("resetminlimit").setAttribute("disabled","true");
+    } else {
+        resetminlimit.removeAttribute("disabled");
+    }
+    if (minlimit <= 1) {
+        document.getElementById("minlimitdownI").setAttribute("disabled","true");
+    } else {
+        minlimitdownI.removeAttribute("disabled");
+    }
+    if (minlimit <= 10) {
+        document.getElementById("minlimitdownX").setAttribute("disabled","true");
+    } else {
+        minlimitdownX.removeAttribute("disabled");
+    }
+    if (minlimit <= 50) {
+        document.getElementById("minlimitdownL").setAttribute("disabled","true");
+    } else {
+        minlimitdownL.removeAttribute("disabled");
+    }
+    if (minlimit <= 100) {
+        document.getElementById("minlimitdownC").setAttribute("disabled","true");
+    } else {
+        minlimitdownC.removeAttribute("disabled");
+    }
+    if (minlimit <= 500) {
+        document.getElementById("minlimitdownD").setAttribute("disabled","true");
+    } else {
+        minlimitdownD.removeAttribute("disabled");
+    }
+    if (minlimit <= 1000) {
+        document.getElementById("minlimitdownM").setAttribute("disabled","true");
+    } else {
+        minlimitdownM.removeAttribute("disabled");
+    }
+    if (minlimit >= maxlimit) {
+        maxlimit = minlimit;
+        maxlimit++;
+    }
+    limit2 = limit;
+}
+setInterval(loop, 500);
+</script>
+<script type="text/javascript">
+function randomnumbers () {
+  var randomNumbers = [];
+  for (var i = 0; i < limit2; i++) {
+    var randomNumber = Math.floor(Math.random() * (maxmin + 1) + minlimit);
+    randomNumbers.push(randomNumber);
+  }
+  var displayElement = document.getElementById("random_namber_display");
+  for (var i = 0; i < randomNumbers.length; i++) {
+    var numberElement = document.createElement("button");
+    numberElement.className = 'set_random_nambers';
+    numberElement.innerText = randomNumbers[i];
+    displayElement.appendChild(numberElement);
+  }
+}
+</script>
+</body>
+</html>
+<p>このコードは(CC BY-NC-SA 4.0)に基づいて制作・配布されています。</p>
+<p style="color:ghostwhite; opacity: 0;">made by H hammer.DiscordID:H hammer#2469,twitterID:@h_hammer2000</p>
